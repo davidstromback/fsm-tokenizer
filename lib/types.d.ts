@@ -1,58 +1,44 @@
-/** Close marker (/). */
-export declare type CloseMarker = 0;
-/** Equals sign (=). */
-export declare type Equals = 1;
-/** Tag or attribute name. */
-export declare type Name = 2;
-/** Closing quotation mark. */
-export declare type Quote = 3;
-/** Tag closer (\>). */
-export declare type TagCloser = 4;
-/** Tag opener (<). */
-export declare type TagOpener = 5;
-/** Body text. */
-export declare type Text = 6;
-/** Attribute value. */
-export declare type Value = 7;
-/** Any token type. */
-export declare type TokenType = CloseMarker | Equals | Name | Quote | TagCloser | TagOpener | Text | Value;
 /**
  * Tokenizes a string and returns the final state.
  */
-export interface Tokenizer<T> {
-    (string: string, state?: State): Generator<T, State, undefined>;
-}
-/**
- * Creates a new tokenizer.
- */
-export interface TokenizerFactory {
-    (): Tokenizer<Token>;
-    <T>(createToken: TokenFactory<T>): Tokenizer<T>;
+export interface Tokenizer<Token, StateName> {
+    (string: string, state?: StateName): Generator<Token, StateName, undefined>;
 }
 /**
  * Creates a token.
  */
-export interface TokenFactory<T> {
-    (type: TokenType, value: string | undefined, start: Point, end: Point): T;
+export interface TokenFactory<Token, Type> {
+    (type: Type, value: string | undefined, start: Point, end: Point): Token;
 }
 /**
  * Finalizes the current token.
  */
 export interface Finalizer {
-    <T>(context: TokenizeContext<T>): T | undefined;
+    (context: Context): Record<string, any> | undefined;
+}
+export interface Rule {
+    match: RegExp;
+    apply(context: Context): State;
 }
 /**
  * State machine.
  */
 export interface State {
+    key: string;
     /**
      * Get the next state.
      */
-    <T>(context: TokenizeContext<T>): State;
+    (context: Context): State;
+    rules: Array<Rule>;
     /**
      * The finalizer to use when in this state.
      */
     finalize: Finalizer;
+}
+export interface Schema<TokenType extends keyof any, StateKey extends keyof any> {
+    tokens: Record<TokenType, Finalizer>;
+    states: Record<StateKey, State>;
+    initialState: StateKey;
 }
 /**
  * Represents a location in a string.
@@ -75,11 +61,11 @@ export interface Point {
 /**
  * A finalized token.
  */
-export interface Token {
+export interface Token<Type> {
     /**
      * The type of the token.
      */
-    type: TokenType;
+    type: Type;
     /**
      * The token string value.
      */
@@ -96,17 +82,15 @@ export interface Token {
 /**
  * Holds information about the current state of a tokeniser.
  */
-export interface TokenizeContext<T> {
+export interface Context {
     /**
      * The current state.
      */
     state: State;
     /**
-     * If this variable is set, a state transition
-     * will take place before processing the next
-     * char.
+     * If set, write and transition before next char.
      */
-    nextState: State | undefined;
+    next: State | undefined;
     /**
      * The current location in the string.
      */
@@ -136,14 +120,11 @@ export interface TokenizeContext<T> {
     /**
      * The current char being processed.
      */
-    char: number;
+    char: string;
     /**
      * The token that was written (if any) on the
      * last call to process.
      */
-    token: T | undefined;
-    /**
-     * The function used to create tokens.
-     */
-    createToken: TokenFactory<T>;
+    token: Record<string, any> | undefined;
+    createToken: TokenFactory<Record<string, any>, string>;
 }
