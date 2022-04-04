@@ -1,0 +1,13 @@
+import type { State } from "./types.js";
+export declare const name: State;
+export declare const nameOrEquals: State;
+export declare const closeMarker: State;
+export declare const equals: State;
+export declare const quoteStart: State;
+export declare const quoteEnd: State;
+export declare const tagCloser: State;
+export declare const tagOpener: State;
+export declare const escapeText: State;
+export declare const text: State;
+export declare const escapeValue: State;
+export declare const value: State;

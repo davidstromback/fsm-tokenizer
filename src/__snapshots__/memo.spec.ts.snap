@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tokenize (memo) throws errors matching snapshots "<<" 1`] = `"Invalid \\"<\\" at line 1, column 2, expected \\"\\\\s\\", \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\"."`;
+
+exports[`tokenize (memo) throws errors matching snapshots "<\\"" 1`] = `"Invalid \\"\\"\\" at line 1, column 2, expected \\"\\\\s\\", \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\"."`;
+
+exports[`tokenize (memo) throws errors matching snapshots "<0>" 1`] = `"Invalid \\"0\\" at line 1, column 2, expected \\"\\\\s\\", \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\"."`;
+
+exports[`tokenize (memo) throws errors matching snapshots "<foo 0foo />" 1`] = `"Invalid \\"0\\" at line 1, column 6, expected \\"\\\\s\\", \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\"."`;

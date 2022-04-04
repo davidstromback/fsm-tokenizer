@@ -1,0 +1,913 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tokenizer matches snapshots "<bar foo=\\"bar\\"> </bar>" 1`] = `
+Object {
+  "state": "text",
+  "tokens": Array [
+    Object {
+      "end": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagOpener",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": Object {
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "name",
+      "value": "bar",
+    },
+    Object {
+      "end": Object {
+        "column": 8,
+        "line": 1,
+        "offset": 7,
+      },
+      "start": Object {
+        "column": 6,
+        "line": 1,
+        "offset": 5,
+      },
+      "type": "name",
+      "value": "foo",
+    },
+    Object {
+      "end": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "start": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "type": "equals",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "start": Object {
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "type": "quote",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 13,
+        "line": 1,
+        "offset": 12,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "type": "value",
+      "value": "bar",
+    },
+    Object {
+      "end": Object {
+        "column": 14,
+        "line": 1,
+        "offset": 13,
+      },
+      "start": Object {
+        "column": 14,
+        "line": 1,
+        "offset": 13,
+      },
+      "type": "quote",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 15,
+        "line": 1,
+        "offset": 14,
+      },
+      "start": Object {
+        "column": 15,
+        "line": 1,
+        "offset": 14,
+      },
+      "type": "tagCloser",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "start": Object {
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "type": "tagOpener",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 18,
+        "line": 1,
+        "offset": 17,
+      },
+      "start": Object {
+        "column": 18,
+        "line": 1,
+        "offset": 17,
+      },
+      "type": "closeMarker",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 21,
+        "line": 1,
+        "offset": 20,
+      },
+      "start": Object {
+        "column": 19,
+        "line": 1,
+        "offset": 18,
+      },
+      "type": "name",
+      "value": "bar",
+    },
+    Object {
+      "end": Object {
+        "column": 22,
+        "line": 1,
+        "offset": 21,
+      },
+      "start": Object {
+        "column": 22,
+        "line": 1,
+        "offset": 21,
+      },
+      "type": "tagCloser",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`tokenizer matches snapshots "<foo bar />" 1`] = `
+Object {
+  "state": "text",
+  "tokens": Array [
+    Object {
+      "end": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagOpener",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": Object {
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "name",
+      "value": "foo",
+    },
+    Object {
+      "end": Object {
+        "column": 8,
+        "line": 1,
+        "offset": 7,
+      },
+      "start": Object {
+        "column": 6,
+        "line": 1,
+        "offset": 5,
+      },
+      "type": "name",
+      "value": "bar",
+    },
+    Object {
+      "end": Object {
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "start": Object {
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "type": "closeMarker",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "type": "tagCloser",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`tokenizer matches snapshots "<foo bar= />" 1`] = `
+Object {
+  "state": "text",
+  "tokens": Array [
+    Object {
+      "end": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagOpener",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": Object {
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "name",
+      "value": "foo",
+    },
+    Object {
+      "end": Object {
+        "column": 8,
+        "line": 1,
+        "offset": 7,
+      },
+      "start": Object {
+        "column": 6,
+        "line": 1,
+        "offset": 5,
+      },
+      "type": "name",
+      "value": "bar",
+    },
+    Object {
+      "end": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "start": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "type": "equals",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "type": "closeMarker",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 12,
+        "line": 1,
+        "offset": 11,
+      },
+      "start": Object {
+        "column": 12,
+        "line": 1,
+        "offset": 11,
+      },
+      "type": "tagCloser",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`tokenizer matches snapshots "<foo bar= foobar />" 1`] = `
+Object {
+  "state": "text",
+  "tokens": Array [
+    Object {
+      "end": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagOpener",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": Object {
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "name",
+      "value": "foo",
+    },
+    Object {
+      "end": Object {
+        "column": 8,
+        "line": 1,
+        "offset": 7,
+      },
+      "start": Object {
+        "column": 6,
+        "line": 1,
+        "offset": 5,
+      },
+      "type": "name",
+      "value": "bar",
+    },
+    Object {
+      "end": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "start": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "type": "equals",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "type": "name",
+      "value": "foobar",
+    },
+    Object {
+      "end": Object {
+        "column": 18,
+        "line": 1,
+        "offset": 17,
+      },
+      "start": Object {
+        "column": 18,
+        "line": 1,
+        "offset": 17,
+      },
+      "type": "closeMarker",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 19,
+        "line": 1,
+        "offset": 18,
+      },
+      "start": Object {
+        "column": 19,
+        "line": 1,
+        "offset": 18,
+      },
+      "type": "tagCloser",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`tokenizer matches snapshots "<foo bar=\\" \\" />" 1`] = `
+Object {
+  "state": "text",
+  "tokens": Array [
+    Object {
+      "end": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagOpener",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": Object {
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "name",
+      "value": "foo",
+    },
+    Object {
+      "end": Object {
+        "column": 8,
+        "line": 1,
+        "offset": 7,
+      },
+      "start": Object {
+        "column": 6,
+        "line": 1,
+        "offset": 5,
+      },
+      "type": "name",
+      "value": "bar",
+    },
+    Object {
+      "end": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "start": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "type": "equals",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "start": Object {
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "type": "quote",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "type": "value",
+      "value": " ",
+    },
+    Object {
+      "end": Object {
+        "column": 12,
+        "line": 1,
+        "offset": 11,
+      },
+      "start": Object {
+        "column": 12,
+        "line": 1,
+        "offset": 11,
+      },
+      "type": "quote",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 14,
+        "line": 1,
+        "offset": 13,
+      },
+      "start": Object {
+        "column": 14,
+        "line": 1,
+        "offset": 13,
+      },
+      "type": "closeMarker",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 15,
+        "line": 1,
+        "offset": 14,
+      },
+      "start": Object {
+        "column": 15,
+        "line": 1,
+        "offset": 14,
+      },
+      "type": "tagCloser",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`tokenizer matches snapshots "<foo bar=\\"foobar\\" />" 1`] = `
+Object {
+  "state": "text",
+  "tokens": Array [
+    Object {
+      "end": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagOpener",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": Object {
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "name",
+      "value": "foo",
+    },
+    Object {
+      "end": Object {
+        "column": 8,
+        "line": 1,
+        "offset": 7,
+      },
+      "start": Object {
+        "column": 6,
+        "line": 1,
+        "offset": 5,
+      },
+      "type": "name",
+      "value": "bar",
+    },
+    Object {
+      "end": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "start": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "type": "equals",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "start": Object {
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "type": "quote",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "type": "value",
+      "value": "foobar",
+    },
+    Object {
+      "end": Object {
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "start": Object {
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "type": "quote",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 19,
+        "line": 1,
+        "offset": 18,
+      },
+      "start": Object {
+        "column": 19,
+        "line": 1,
+        "offset": 18,
+      },
+      "type": "closeMarker",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 20,
+        "line": 1,
+        "offset": 19,
+      },
+      "start": Object {
+        "column": 20,
+        "line": 1,
+        "offset": 19,
+      },
+      "type": "tagCloser",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`tokenizer matches snapshots "<foo>text</foo>" 1`] = `
+Object {
+  "state": "text",
+  "tokens": Array [
+    Object {
+      "end": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagOpener",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": Object {
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "name",
+      "value": "foo",
+    },
+    Object {
+      "end": Object {
+        "column": 5,
+        "line": 1,
+        "offset": 4,
+      },
+      "start": Object {
+        "column": 5,
+        "line": 1,
+        "offset": 4,
+      },
+      "type": "tagCloser",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "start": Object {
+        "column": 6,
+        "line": 1,
+        "offset": 5,
+      },
+      "type": "text",
+      "value": "text",
+    },
+    Object {
+      "end": Object {
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "start": Object {
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "type": "tagOpener",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "type": "closeMarker",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 14,
+        "line": 1,
+        "offset": 13,
+      },
+      "start": Object {
+        "column": 12,
+        "line": 1,
+        "offset": 11,
+      },
+      "type": "name",
+      "value": "foo",
+    },
+    Object {
+      "end": Object {
+        "column": 15,
+        "line": 1,
+        "offset": 14,
+      },
+      "start": Object {
+        "column": 15,
+        "line": 1,
+        "offset": 14,
+      },
+      "type": "tagCloser",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`tokenizer matches snapshots "<foobar />" 1`] = `
+Object {
+  "state": "text",
+  "tokens": Array [
+    Object {
+      "end": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagOpener",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "start": Object {
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "name",
+      "value": "foobar",
+    },
+    Object {
+      "end": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "start": Object {
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "type": "closeMarker",
+      "value": undefined,
+    },
+    Object {
+      "end": Object {
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "start": Object {
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "type": "tagCloser",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`tokenizer throws errors matching snapshots "<<" 1`] = `"Invalid \\"<\\" at line 1, column 2, expected \\"\\\\s\\", \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\"."`;
+
+exports[`tokenizer throws errors matching snapshots "<\\"" 1`] = `"Invalid \\"\\"\\" at line 1, column 2, expected \\"\\\\s\\", \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\"."`;
+
+exports[`tokenizer throws errors matching snapshots "<0>" 1`] = `"Invalid \\"0\\" at line 1, column 2, expected \\"\\\\s\\", \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\"."`;
+
+exports[`tokenizer throws errors matching snapshots "<foo 0foo />" 1`] = `"Invalid \\"0\\" at line 1, column 6, expected \\"\\\\s\\", \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\"."`;

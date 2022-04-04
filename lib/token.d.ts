@@ -1,0 +1,10 @@
+import type { CloseMarker, Equals, Name, Quote, TagCloser, TagOpener, Text, Token, TokenFactory, Value } from "./types.js";
+export declare const CLOSE_MARKER: CloseMarker;
+export declare const EQUALS: Equals;
+export declare const NAME: Name;
+export declare const QUOTE: Quote;
+export declare const TAG_CLOSER: TagCloser;
+export declare const TAG_OPENER: TagOpener;
+export declare const TEXT: Text;
+export declare const VALUE: Value;
+export declare const defaultTokenFactory: TokenFactory<Token>;
