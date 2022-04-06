@@ -1,4 +1,4 @@
-import { compile } from "./compile.js";
+import { compile } from "../compile.js";
 
 export const markup = compile({
   initialState: "text",

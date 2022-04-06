@@ -1,4 +1,5 @@
-export type {
-} from "./types.js";
+export * from "./types.js";
 
-export { tokenizer as createTokenizer } from "./tokenizer.js";
+export { tokenizer } from "./tokenizer.js";
+export { compile } from "./compile.js";
+export { memo } from "./memo.js";

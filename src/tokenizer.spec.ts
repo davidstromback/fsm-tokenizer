@@ -1,4 +1,4 @@
-import { markup } from "./markup.js";
+import { markup } from "./__tests__/markup.js";
 import { tokenizer } from "./tokenizer.js";
 import { valid, invalid, split } from "./__tests__/cases.js";
 import { tokenizeResult } from "./__tests__/fixtures.js";

@@ -1,4 +1,4 @@
-import { markup } from "./markup.js";
+import { markup } from "./__tests__/markup.js";
 import { memo } from "./memo.js";
 import { tokenizer } from "./tokenizer.js";
 import { valid, invalid } from "./__tests__/cases.js";
