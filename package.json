@@ -1,8 +1,8 @@
 {
-  "name": "markup-tokenizer",
+  "name": "fsm-tokenizer",
   "type": "module",
   "version": "0.0.1",
-  "description": "A lightweight tokenizer for HTML-like markup syntax.",
+  "description": "Dead simple finite state machine tokenizer.",
   "main": "./lib/index.js",
   "author": "",
   "license": "ISC",
