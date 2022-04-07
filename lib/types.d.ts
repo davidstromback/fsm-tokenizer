@@ -16,6 +16,10 @@ export interface TokenFactory<Token, Type> {
 export interface Finalizer {
     (context: Context): Record<string, any> | undefined;
 }
+/**
+ * A rule consisiting of a regex and a
+ * function to invoke if matched.
+ */
 export interface Rule {
     match: RegExp;
     apply(context: Context): State;
@@ -29,6 +33,7 @@ export interface State {
      * Get the next state.
      */
     (context: Context): State;
+    /** Rules to apply when in this state. */
     rules: Array<Rule>;
     /**
      * The finalizer to use when in this state.

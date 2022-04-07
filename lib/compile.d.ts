@@ -5,7 +5,6 @@ interface TokenOptions {
 }
 interface StateOptions<TokenType, StateKey> {
     token?: TokenType;
-    /** match, when, next state, commit current token */
     rules: Array<[string | RegExp, "before" | "after", StateKey, boolean]>;
 }
 interface Options<Tokens, States> {
