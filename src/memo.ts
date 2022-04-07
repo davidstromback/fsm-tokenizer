@@ -1,11 +1,11 @@
-import type { Token, Tokenizer } from "./types.js";
+import type { Tokenizer } from "./types.js";
 
 export function memo<StateName extends keyof any, T>(
   tokenize: Tokenizer<T, StateName>
 ): Tokenizer<T, StateName>;
 
-export function memo(tokenize: Tokenizer<Token<string>, string>) {
-  const cache: Record<string, { state: string; tokens: Array<any> }> = {};
+export function memo(tokenize: Tokenizer<unknown, string>) {
+  const cache: Record<string, { state: string; tokens: Array<unknown> }> = {};
 
   return function* tokenizeMemo(input: string, initialState: string) {
     const key = `${initialState}:${input}`;
@@ -20,7 +20,7 @@ export function memo(tokenize: Tokenizer<Token<string>, string>) {
 
     const generator = tokenize(input, initialState);
 
-    const tokens: Array<any> = [];
+    const tokens: Array<unknown> = [];
 
     let result = generator.next();
     while (!result.done) {
