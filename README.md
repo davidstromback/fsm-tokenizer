@@ -7,21 +7,21 @@ import { compile } from 'fsm-tokenizer'
 
 const schema = compile({
     tokens: {
-        text: { value: true; padding: false; },
-        tagOpener: { value: false; padding: false; },
-        tagCloser: { value: false; padding: false; }
+        text: { value: true, padding: false },
+        tagOpener: { value: false, padding: false },
+        tagCloser: { value: false, padding: false }
     },
     states: {
         text: {
             token: 'text',
             rules: [
                 // If the current char is "<", immediately commit
-                // the pending token and switch to the "tag" state
+                // the pending token and switch to the "tagOpener" state
                 // before processing it.
                 [/</, 'before', 'tagOpener', true]
                 // Else continue processing the current token (don't
-                // commit) using the "body" state.
-                [/[\S\s]/, 'after', 'text', false],
+                // commit) using the "text" state.
+                [/[\S\s]/, 'after', 'text', false]
             ]
         },
         tagOpener: {
@@ -84,7 +84,7 @@ const tokenize = tokenizer(schema, (type, value) => ({ type, value }));
 ```ts
 import { memo } from 'fsm-tokenizer'
 
-const tokenize = memo(tokenizer())
+const tokenize = memo(tokenizer(schema))
 ```
 
 ## Tokenize a string
@@ -105,7 +105,7 @@ for (const token of tokenize(`Foo<>Bar`)) {
 
 When parsing template literals, it can be useful to inject interpolations
 into the stream of tokens, this can be elegantly handled by using the yield*
-keyord.
+keyword.
 ```ts
 export function* interpolate(
   strings: TemplateStringsArray,
@@ -114,13 +114,11 @@ export function* interpolate(
   let state = yield* tokenize(strings[0]);
 
   for (let index = 0; index < values.length; index++) {
-    yield { type: 'interpolations', value: values[index] };
+    yield { type: 'interpolation', value: values[index] };
 
     state = yield* tokenize(strings[index + 1], state);
   }
 }
 ```
 
-Note: The to/from position will reset at the start of each string,
-either omit them using a custom token factory, or track the
-accumulated values manually. 
+Note: The to/from position will reset at the start of each string.

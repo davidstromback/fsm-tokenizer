@@ -9,7 +9,6 @@ interface TokenOptions {
 
 interface StateOptions<TokenType, StateKey> {
   token?: TokenType;
-  /** match, when, next state, commit current token */
   rules: Array<[string | RegExp, "before" | "after", StateKey, boolean]>;
 }
 
@@ -110,10 +109,10 @@ export function compile(
   );
 
   for (const [key, state] of Object.entries(states)) {
-    for (const [match, event, next, commit] of options.states[key].rules) {
+    for (const [match, when, next, commit] of options.states[key].rules) {
       state.rules.push({
         match: typeof match === "string" ? new RegExp(match) : match,
-        apply: transition(states[next], event, commit),
+        apply: transition(states[next], when, commit),
       });
     }
   }
