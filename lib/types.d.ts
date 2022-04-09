@@ -49,7 +49,7 @@ export interface Token<Type> {
  * Creates a token.
  */
 export interface TokenFactory<Token, Type> {
-    (type: Type, value: string | undefined, start: Point, end: Point, offset: Point): Token;
+    (type: Type, value: string | undefined, start: Point, end: Point): Token;
 }
 /**
  * Tokenizes a string and returns the final state.
@@ -112,10 +112,6 @@ export interface Context {
      */
     location: Point;
     /**
-     * The offset is added to the position of created tokens.
-     */
-    offset: Point;
-    /**
      * The location of the first non-whitespace
      * char in the current token.
      */
@@ -133,6 +129,10 @@ export interface Context {
      * The location of the previous char.
      */
     paddingEnd: Point;
+    /**
+     * The offset of the current string from the start of the document.
+     */
+    offset: number;
     /**
      * The string being processed.
      */
