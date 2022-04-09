@@ -1,14 +1,22 @@
+export interface TokenizerOptions<StateKey> {
+    state?: StateKey;
+    offset?: Point;
+}
+export interface TokenizerResult<StateKey> {
+    state: StateKey;
+    offset: Point;
+}
 /**
  * Tokenizes a string and returns the final state.
  */
-export interface Tokenizer<Token, StateName> {
-    (string: string, state?: StateName): Generator<Token, StateName, undefined>;
+export interface Tokenizer<Token, StateKey> {
+    (string: string, options?: TokenizerOptions<StateKey>): Generator<Token, TokenizerResult<StateKey>, undefined>;
 }
 /**
  * Creates a token.
  */
 export interface TokenFactory<Token, Type> {
-    (type: Type, value: string | undefined, start: Point, end: Point): Token;
+    (type: Type, value: string | undefined, start: Point, end: Point, offset: Point): Token;
 }
 /**
  * Finalizes the current token.
@@ -50,16 +58,16 @@ export interface Schema<TokenType extends keyof any, StateKey extends keyof any>
  */
 export interface Point {
     /**
-     * Line, 1-indexed.
+     * Line, 0-indexed.
      */
     line: number;
     /**
-     * Column, 1-indexed.
+     * Column, 0-indexed.
      */
     column: number;
     /**
      * Offset from the start of the string,
-     * 1-indexed.
+     * 0-indexed.
      */
     offset: number;
 }
@@ -84,6 +92,10 @@ export interface Token<Type> {
      */
     end: Point;
 }
+export interface Interpolation {
+    type: "interpolation";
+    value: any;
+}
 /**
  * Holds information about the current state of a tokeniser.
  */
@@ -100,6 +112,10 @@ export interface Context {
      * The current location in the string.
      */
     location: Point;
+    /**
+     * The offset is added to the position of created tokens.
+     */
+    offset: Point;
     /**
      * The location of the first non-whitespace
      * char in the current token.
