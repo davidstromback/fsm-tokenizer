@@ -23,7 +23,10 @@ function noop() {
 }
 
 function slice(context: Context, start: Point, end: Point) {
-  return context.string.slice(start.offset, end.offset + 1);
+  return context.string.slice(
+    start.offset - context.offset,
+    end.offset + 1 - context.offset
+  );
 }
 
 function contentStart(context: Context) {
@@ -69,7 +72,7 @@ export function compile(
 
         const value = getValue(context, start, end);
 
-        return context.createToken(type, value, start, end, context.offset);
+        return context.createToken(type, value, start, end);
       }
 
       return [type, finalize];

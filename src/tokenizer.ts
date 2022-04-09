@@ -8,7 +8,7 @@ import type {
 } from "./types.js";
 
 import { write } from "./context.js";
-import { add, assign, clone, empty, point } from "./point.js";
+import { assign, clone, empty, point } from "./point.js";
 
 const matchWhitespace = /\s/;
 const matchLineBreak = /\n/;
@@ -17,15 +17,9 @@ function defaultTokenFactory<T>(
   type: T,
   value: string | undefined,
   start: Point,
-  end: Point,
-  offset: Point
+  end: Point
 ): Token<T> {
-  return {
-    type,
-    value,
-    start: add(clone(start), offset),
-    end: add(clone(end), offset),
-  };
+  return { type, value, start: clone(start), end: clone(end) };
 }
 
 const defaultOptions = {};
@@ -49,13 +43,13 @@ export function tokenizer(
     const context: Context = {
       char: "",
       contentEnd: point(-1),
-      contentStart: point(),
+      contentStart: clone(offset),
       createToken,
-      location: point(),
+      location: clone(offset),
       next: undefined,
-      offset,
+      offset: offset.offset,
       paddingEnd: point(-1),
-      paddingStart: point(),
+      paddingStart: clone(offset),
       state: schema.states[state],
       string: input,
       token: undefined,
@@ -105,7 +99,7 @@ export function tokenizer(
 
     return {
       state: (context.next ?? context.state).key,
-      offset: add(context.location, context.offset),
+      offset: context.location,
     };
   };
 }

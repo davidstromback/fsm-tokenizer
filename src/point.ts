@@ -25,15 +25,4 @@ export function assign(target: Point, source: Point) {
   return target;
 }
 
-/**
- * Adds the value of a point to an existing point.
- */
-export function add(target: Point, addend: Point) {
-  target.line += addend.line;
-  target.column += addend.column;
-  target.offset += addend.offset;
-
-  return target;
-}
-
 export const empty = point();
