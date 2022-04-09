@@ -1,5 +1,4 @@
-export interface Interpolation {
-    type: "interpolation";
+export interface Interpolation extends Token<"interpolation"> {
     value: any;
 }
 /**
