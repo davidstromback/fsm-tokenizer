@@ -6,7 +6,7 @@ export declare function point(offset?: number, line?: number, column?: number): 
 /**
  * Clones a point.
  */
-export declare function clone(source: Point): Point;
+export declare function clone({ line, column, offset }: Point): Point;
 /**
  * Copies all values of a point to another point.
  */
