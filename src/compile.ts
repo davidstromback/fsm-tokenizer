@@ -8,6 +8,7 @@ import type {
 } from "./types.js";
 
 import { transition } from "./context.js";
+import { format, TokenizationError } from "./error.js";
 
 interface TokenOptions {
   value?: boolean;
@@ -99,25 +100,7 @@ export function compile(
           }
         }
 
-        let message = `Unexpected "${context.char}"`;
-
-        if (context.state.finalize.tokenType) {
-          message += ` in token "${context.state.finalize.tokenType}"`;
-        }
-
-        if (context.state.rules.length === 1) {
-          message += `, expected "${context.state.rules[0]}"`;
-        } else if (context.state.rules.length > 1) {
-          const expected = context.state.rules.map(
-            (rule) => `"${rule.match.source}"`
-          );
-
-          message += `, expected ${expected
-            .slice(1)
-            .join(", ")} or ${expected.pop()}`;
-        }
-
-        throw new Error(message);
+        throw new TokenizationError(format(context), context.location);
       };
 
       state.rules = rules;
@@ -132,12 +115,10 @@ export function compile(
 
   for (const [key, state] of Object.entries(states)) {
     for (const [match, when, next, commit] of options.states[key].rules) {
-      const rule: Rule = {
+      state.rules.push({
         match: typeof match === "string" ? new RegExp(match) : match,
         apply: transition(states[next], when, commit),
-      };
-
-      state.rules.push(rule);
+      });
     }
   }
 
