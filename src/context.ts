@@ -11,16 +11,10 @@ export function write(context: Context): void {
 
 export function transition(
   state: State,
-  event?: "continue" | "before" | "after",
-  commit?: boolean
+  when: "before" | "after",
+  commit: boolean
 ) {
-  if (event === "continue") {
-    return function noop() {
-      return state;
-    };
-  }
-
-  if (event === "before") {
+  if (when === "before") {
     function delegate(context: Context) {
       context.state = state;
 

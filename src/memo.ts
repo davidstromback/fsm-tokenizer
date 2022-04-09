@@ -7,6 +7,8 @@ interface CacheEntry {
   tokens: Array<unknown>;
 }
 
+const defaultOptions = {};
+
 export function memo<StateKey extends keyof any, T>(
   tokenize: Tokenizer<T, StateKey>
 ): Tokenizer<T, StateKey>;
@@ -16,9 +18,10 @@ export function memo(
 ): Tokenizer<unknown, string> {
   const cache: Record<string, CacheEntry> = {};
 
-  return function* tokenizeMemo(input: string, options) {
-    const { offset, line, column } = options?.offset ?? empty;
-    const key = `${offset}:${line}:${column}:${options?.state ?? ""}:${input}`;
+  return function* tokenizeMemo(input: string, options = defaultOptions) {
+    const { state = "", offset: { offset, line, column } = empty } = options;
+    
+    const key = `${offset}:${line}:${column}:${state}:${input}`;
 
     if (key in cache) {
       for (const token of cache[key].tokens) {

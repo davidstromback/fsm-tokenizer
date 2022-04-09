@@ -28,6 +28,8 @@ function defaultTokenFactory<T>(
   };
 }
 
+const defaultOptions = {};
+
 export function tokenizer<
   TokenType extends keyof any,
   StateKey extends keyof any,
@@ -40,8 +42,10 @@ export function tokenizer<
 export function tokenizer(
   schema: Schema<string, string>,
   createToken = defaultTokenFactory
-): Tokenizer<Record<string, any>, string> {
-  return function* tokenize(input, options) {
+): Tokenizer<unknown, string> {
+  return function* tokenize(input, options = defaultOptions) {
+    const { state = schema.initialState, offset = empty } = options;
+
     const context: Context = {
       char: "",
       contentEnd: point(-1),
@@ -49,10 +53,10 @@ export function tokenizer(
       createToken,
       location: point(),
       next: undefined,
-      offset: options?.offset ?? empty,
+      offset,
       paddingEnd: point(-1),
       paddingStart: point(),
-      state: schema.states[options?.state ?? schema.initialState],
+      state: schema.states[state],
       string: input,
       token: undefined,
     };

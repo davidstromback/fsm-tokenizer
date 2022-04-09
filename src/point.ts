@@ -10,12 +10,8 @@ export function point(offset = 0, line = 0, column = 0): Point {
 /**
  * Clones a point.
  */
-export function clone(source: Point): Point {
-  return {
-    line: source.line,
-    column: source.column,
-    offset: source.offset,
-  };
+export function clone({ line, column, offset }: Point): Point {
+  return { line, column, offset };
 }
 
 /**
