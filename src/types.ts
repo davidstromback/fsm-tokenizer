@@ -89,7 +89,8 @@ export interface TokenizerResult<StateKey> {
  * Finalizes the current token.
  */
 export interface Finalizer {
-  (context: Context): Record<string, any> | undefined;
+  <Token>(context: Context<Token>): Token | undefined;
+  tokenType?: string;
 }
 
 /**
@@ -98,7 +99,7 @@ export interface Finalizer {
  */
 export interface Rule {
   match: RegExp;
-  apply(context: Context): State;
+  apply<Token>(context: Context<Token>): State;
 }
 
 /**
@@ -110,7 +111,7 @@ export interface State {
   /**
    * Get the next state.
    */
-  (context: Context): State;
+  <Token>(context: Context<Token>): State;
 
   /** Rules to apply when in this state. */
   rules: Array<Rule>;
@@ -124,7 +125,7 @@ export interface State {
 /**
  * Holds information about the current state of a tokeniser.
  */
-export interface Context {
+export interface Context<Token = any> {
   /**
    * The current state.
    */
@@ -181,7 +182,7 @@ export interface Context {
    * The token that was written (if any) on the
    * last call to process.
    */
-  token: Record<string, any> | undefined;
+  token: Token | undefined;
 
-  createToken: TokenFactory<Record<string, any>, string>;
+  createToken: TokenFactory<Token, string>;
 }

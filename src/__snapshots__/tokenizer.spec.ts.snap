@@ -960,10 +960,10 @@ Object {
 }
 `;
 
-exports[`tokenizer throws errors matching snapshots "<<" 1`] = `"Invalid \\"<\\" at line 1, column 2, expected \\"\\\\s\\", \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\"."`;
+exports[`tokenizer throws errors matching snapshots "<<" 1`] = `"Unexpected \\"<\\" in token \\"name\\", expected \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\" or \\">\\""`;
 
-exports[`tokenizer throws errors matching snapshots "<\\"" 1`] = `"Invalid \\"\\"\\" at line 1, column 2, expected \\"\\\\s\\", \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\"."`;
+exports[`tokenizer throws errors matching snapshots "<\\"" 1`] = `"Unexpected \\"\\"\\" in token \\"name\\", expected \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\" or \\">\\""`;
 
-exports[`tokenizer throws errors matching snapshots "<0>" 1`] = `"Invalid \\"0\\" at line 1, column 2, expected \\"\\\\s\\", \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\"."`;
+exports[`tokenizer throws errors matching snapshots "<0>" 1`] = `"Unexpected \\"0\\" in token \\"name\\", expected \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\" or \\">\\""`;
 
-exports[`tokenizer throws errors matching snapshots "<foo 0foo />" 1`] = `"Invalid \\"0\\" at line 1, column 6, expected \\"\\\\s\\", \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\"."`;
+exports[`tokenizer throws errors matching snapshots "<foo 0foo />" 1`] = `"Unexpected \\"0\\" in token \\"name\\", expected \\"[a-zA-Z]\\", \\"\\\\/\\", \\">\\" or \\">\\""`;
