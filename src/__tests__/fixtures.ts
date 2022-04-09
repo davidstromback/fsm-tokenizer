@@ -1,12 +1,15 @@
-import { Tokenizer } from "../types.js";
+import { Tokenizer, TokenizerResult } from "../types.js";
 
 export function tokenizeResult<Token, StateKey>(
   tokenize: Tokenizer<Token, StateKey>,
   ...inputs: Array<string>
 ) {
-  return inputs.reduce<{ tokens: Array<Token>; state?: StateKey }>(
+  return inputs.reduce<{
+    tokens: Array<Token>;
+    result?: TokenizerResult<StateKey>;
+  }>(
     (acc, input) => {
-      const generator = tokenize(input, acc.state);
+      const generator = tokenize(input, acc.result);
 
       let result = generator.next();
 
@@ -15,10 +18,10 @@ export function tokenizeResult<Token, StateKey>(
         result = generator.next();
       }
 
-      acc.state = result.value;
+      acc.result = result.value;
 
       return acc;
     },
-    { tokens: [], state: undefined }
+    { tokens: [], result: undefined }
   );
 }

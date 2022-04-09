@@ -8,7 +8,7 @@ import type {
 } from "./types.js";
 
 import { write } from "./context.js";
-import { clone, assign } from "./point.js";
+import { add, assign, clone, empty, point } from "./point.js";
 
 const matchWhitespace = /\s/;
 const matchLineBreak = /\n/;
@@ -17,37 +17,44 @@ function defaultTokenFactory<T>(
   type: T,
   value: string | undefined,
   start: Point,
-  end: Point
+  end: Point,
+  offset: Point
 ): Token<T> {
-  return { type, value, start: clone(start), end: clone(end) };
+  return {
+    type,
+    value,
+    start: add(clone(start), offset),
+    end: add(clone(end), offset),
+  };
 }
 
 export function tokenizer<
   TokenType extends keyof any,
-  StateName extends keyof any,
+  StateKey extends keyof any,
   T = Token<TokenType>
 >(
-  schema: Schema<TokenType, StateName>,
+  schema: Schema<TokenType, StateKey>,
   createToken?: TokenFactory<T, TokenType>
-): Tokenizer<T, StateName>;
+): Tokenizer<T, StateKey>;
 
 export function tokenizer(
   schema: Schema<string, string>,
   createToken = defaultTokenFactory
 ): Tokenizer<Record<string, any>, string> {
-  return function* tokenize(input, initialState = schema.initialState) {
+  return function* tokenize(input, options) {
     const context: Context = {
       char: "",
-      contentEnd: { line: 1, column: 1, offset: -1 },
-      contentStart: { line: 1, column: 1, offset: 0 },
-      location: { line: 1, column: 1, offset: 0 },
+      contentEnd: point(-1),
+      contentStart: point(),
+      createToken,
+      location: point(),
       next: undefined,
-      paddingEnd: { line: 1, column: 1, offset: -1 },
-      paddingStart: { line: 1, column: 1, offset: 0 },
-      state: schema.states[initialState],
+      offset: options?.offset ?? empty,
+      paddingEnd: point(-1),
+      paddingStart: point(),
+      state: schema.states[options?.state ?? schema.initialState],
       string: input,
       token: undefined,
-      createToken,
     };
 
     for (let index = 0; index < input.length; index++) {
@@ -67,7 +74,7 @@ export function tokenizer(
       context.location.offset++;
 
       if (matchLineBreak.test(context.char)) {
-        context.location.column = 1;
+        context.location.column = 0;
         context.location.line++;
       } else {
         context.location.column++;
@@ -92,6 +99,9 @@ export function tokenizer(
       yield context.token;
     }
 
-    return (context.next ?? context.state).key;
+    return {
+      state: (context.next ?? context.state).key,
+      offset: add(context.location, context.offset),
+    };
   };
 }

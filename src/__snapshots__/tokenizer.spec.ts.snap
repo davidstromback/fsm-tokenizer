@@ -2,17 +2,24 @@
 
 exports[`tokenizer matches snapshots "<bar foo=\\"bar\\"> </bar>" 1`] = `
 Object {
-  "state": "text",
+  "result": Object {
+    "offset": Object {
+      "column": 22,
+      "line": 0,
+      "offset": 22,
+    },
+    "state": "text",
+  },
   "tokens": Array [
     Object {
       "end": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "start": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "type": "tagOpener",
@@ -20,13 +27,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 4,
-        "line": 1,
+        "column": 3,
+        "line": 0,
         "offset": 3,
       },
       "start": Object {
-        "column": 2,
-        "line": 1,
+        "column": 1,
+        "line": 0,
         "offset": 1,
       },
       "type": "name",
@@ -34,13 +41,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 8,
-        "line": 1,
+        "column": 7,
+        "line": 0,
         "offset": 7,
       },
       "start": Object {
-        "column": 6,
-        "line": 1,
+        "column": 5,
+        "line": 0,
         "offset": 5,
       },
       "type": "name",
@@ -48,13 +55,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "start": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "type": "equals",
@@ -62,13 +69,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 10,
-        "line": 1,
+        "column": 9,
+        "line": 0,
         "offset": 9,
       },
       "start": Object {
-        "column": 10,
-        "line": 1,
+        "column": 9,
+        "line": 0,
         "offset": 9,
       },
       "type": "quote",
@@ -76,13 +83,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 13,
-        "line": 1,
+        "column": 12,
+        "line": 0,
         "offset": 12,
       },
       "start": Object {
-        "column": 11,
-        "line": 1,
+        "column": 10,
+        "line": 0,
         "offset": 10,
       },
       "type": "value",
@@ -90,13 +97,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 14,
-        "line": 1,
+        "column": 13,
+        "line": 0,
         "offset": 13,
       },
       "start": Object {
-        "column": 14,
-        "line": 1,
+        "column": 13,
+        "line": 0,
         "offset": 13,
       },
       "type": "quote",
@@ -104,13 +111,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 15,
-        "line": 1,
+        "column": 14,
+        "line": 0,
         "offset": 14,
       },
       "start": Object {
-        "column": 15,
-        "line": 1,
+        "column": 14,
+        "line": 0,
         "offset": 14,
       },
       "type": "tagCloser",
@@ -118,13 +125,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 17,
-        "line": 1,
+        "column": 16,
+        "line": 0,
         "offset": 16,
       },
       "start": Object {
-        "column": 17,
-        "line": 1,
+        "column": 16,
+        "line": 0,
         "offset": 16,
       },
       "type": "tagOpener",
@@ -132,13 +139,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 18,
-        "line": 1,
+        "column": 17,
+        "line": 0,
         "offset": 17,
       },
       "start": Object {
-        "column": 18,
-        "line": 1,
+        "column": 17,
+        "line": 0,
         "offset": 17,
       },
       "type": "closeMarker",
@@ -146,13 +153,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 21,
-        "line": 1,
+        "column": 20,
+        "line": 0,
         "offset": 20,
       },
       "start": Object {
-        "column": 19,
-        "line": 1,
+        "column": 18,
+        "line": 0,
         "offset": 18,
       },
       "type": "name",
@@ -160,13 +167,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 22,
-        "line": 1,
+        "column": 21,
+        "line": 0,
         "offset": 21,
       },
       "start": Object {
-        "column": 22,
-        "line": 1,
+        "column": 21,
+        "line": 0,
         "offset": 21,
       },
       "type": "tagCloser",
@@ -178,17 +185,24 @@ Object {
 
 exports[`tokenizer matches snapshots "<foo bar />" 1`] = `
 Object {
-  "state": "text",
+  "result": Object {
+    "offset": Object {
+      "column": 11,
+      "line": 0,
+      "offset": 11,
+    },
+    "state": "text",
+  },
   "tokens": Array [
     Object {
       "end": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "start": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "type": "tagOpener",
@@ -196,13 +210,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 4,
-        "line": 1,
+        "column": 3,
+        "line": 0,
         "offset": 3,
       },
       "start": Object {
-        "column": 2,
-        "line": 1,
+        "column": 1,
+        "line": 0,
         "offset": 1,
       },
       "type": "name",
@@ -210,13 +224,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 8,
-        "line": 1,
+        "column": 7,
+        "line": 0,
         "offset": 7,
       },
       "start": Object {
-        "column": 6,
-        "line": 1,
+        "column": 5,
+        "line": 0,
         "offset": 5,
       },
       "type": "name",
@@ -224,13 +238,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 10,
-        "line": 1,
+        "column": 9,
+        "line": 0,
         "offset": 9,
       },
       "start": Object {
-        "column": 10,
-        "line": 1,
+        "column": 9,
+        "line": 0,
         "offset": 9,
       },
       "type": "closeMarker",
@@ -238,13 +252,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 11,
-        "line": 1,
+        "column": 10,
+        "line": 0,
         "offset": 10,
       },
       "start": Object {
-        "column": 11,
-        "line": 1,
+        "column": 10,
+        "line": 0,
         "offset": 10,
       },
       "type": "tagCloser",
@@ -256,17 +270,24 @@ Object {
 
 exports[`tokenizer matches snapshots "<foo bar= />" 1`] = `
 Object {
-  "state": "text",
+  "result": Object {
+    "offset": Object {
+      "column": 12,
+      "line": 0,
+      "offset": 12,
+    },
+    "state": "text",
+  },
   "tokens": Array [
     Object {
       "end": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "start": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "type": "tagOpener",
@@ -274,13 +295,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 4,
-        "line": 1,
+        "column": 3,
+        "line": 0,
         "offset": 3,
       },
       "start": Object {
-        "column": 2,
-        "line": 1,
+        "column": 1,
+        "line": 0,
         "offset": 1,
       },
       "type": "name",
@@ -288,13 +309,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 8,
-        "line": 1,
+        "column": 7,
+        "line": 0,
         "offset": 7,
       },
       "start": Object {
-        "column": 6,
-        "line": 1,
+        "column": 5,
+        "line": 0,
         "offset": 5,
       },
       "type": "name",
@@ -302,13 +323,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "start": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "type": "equals",
@@ -316,13 +337,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 11,
-        "line": 1,
+        "column": 10,
+        "line": 0,
         "offset": 10,
       },
       "start": Object {
-        "column": 11,
-        "line": 1,
+        "column": 10,
+        "line": 0,
         "offset": 10,
       },
       "type": "closeMarker",
@@ -330,13 +351,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 12,
-        "line": 1,
+        "column": 11,
+        "line": 0,
         "offset": 11,
       },
       "start": Object {
-        "column": 12,
-        "line": 1,
+        "column": 11,
+        "line": 0,
         "offset": 11,
       },
       "type": "tagCloser",
@@ -348,17 +369,24 @@ Object {
 
 exports[`tokenizer matches snapshots "<foo bar= foobar />" 1`] = `
 Object {
-  "state": "text",
+  "result": Object {
+    "offset": Object {
+      "column": 19,
+      "line": 0,
+      "offset": 19,
+    },
+    "state": "text",
+  },
   "tokens": Array [
     Object {
       "end": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "start": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "type": "tagOpener",
@@ -366,13 +394,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 4,
-        "line": 1,
+        "column": 3,
+        "line": 0,
         "offset": 3,
       },
       "start": Object {
-        "column": 2,
-        "line": 1,
+        "column": 1,
+        "line": 0,
         "offset": 1,
       },
       "type": "name",
@@ -380,13 +408,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 8,
-        "line": 1,
+        "column": 7,
+        "line": 0,
         "offset": 7,
       },
       "start": Object {
-        "column": 6,
-        "line": 1,
+        "column": 5,
+        "line": 0,
         "offset": 5,
       },
       "type": "name",
@@ -394,13 +422,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "start": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "type": "equals",
@@ -408,13 +436,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 16,
-        "line": 1,
+        "column": 15,
+        "line": 0,
         "offset": 15,
       },
       "start": Object {
-        "column": 11,
-        "line": 1,
+        "column": 10,
+        "line": 0,
         "offset": 10,
       },
       "type": "name",
@@ -422,13 +450,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 18,
-        "line": 1,
+        "column": 17,
+        "line": 0,
         "offset": 17,
       },
       "start": Object {
-        "column": 18,
-        "line": 1,
+        "column": 17,
+        "line": 0,
         "offset": 17,
       },
       "type": "closeMarker",
@@ -436,13 +464,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 19,
-        "line": 1,
+        "column": 18,
+        "line": 0,
         "offset": 18,
       },
       "start": Object {
-        "column": 19,
-        "line": 1,
+        "column": 18,
+        "line": 0,
         "offset": 18,
       },
       "type": "tagCloser",
@@ -454,17 +482,24 @@ Object {
 
 exports[`tokenizer matches snapshots "<foo bar=\\" \\" />" 1`] = `
 Object {
-  "state": "text",
+  "result": Object {
+    "offset": Object {
+      "column": 15,
+      "line": 0,
+      "offset": 15,
+    },
+    "state": "text",
+  },
   "tokens": Array [
     Object {
       "end": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "start": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "type": "tagOpener",
@@ -472,13 +507,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 4,
-        "line": 1,
+        "column": 3,
+        "line": 0,
         "offset": 3,
       },
       "start": Object {
-        "column": 2,
-        "line": 1,
+        "column": 1,
+        "line": 0,
         "offset": 1,
       },
       "type": "name",
@@ -486,13 +521,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 8,
-        "line": 1,
+        "column": 7,
+        "line": 0,
         "offset": 7,
       },
       "start": Object {
-        "column": 6,
-        "line": 1,
+        "column": 5,
+        "line": 0,
         "offset": 5,
       },
       "type": "name",
@@ -500,13 +535,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "start": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "type": "equals",
@@ -514,13 +549,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 10,
-        "line": 1,
+        "column": 9,
+        "line": 0,
         "offset": 9,
       },
       "start": Object {
-        "column": 10,
-        "line": 1,
+        "column": 9,
+        "line": 0,
         "offset": 9,
       },
       "type": "quote",
@@ -528,13 +563,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 11,
-        "line": 1,
+        "column": 10,
+        "line": 0,
         "offset": 10,
       },
       "start": Object {
-        "column": 11,
-        "line": 1,
+        "column": 10,
+        "line": 0,
         "offset": 10,
       },
       "type": "value",
@@ -542,13 +577,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 12,
-        "line": 1,
+        "column": 11,
+        "line": 0,
         "offset": 11,
       },
       "start": Object {
-        "column": 12,
-        "line": 1,
+        "column": 11,
+        "line": 0,
         "offset": 11,
       },
       "type": "quote",
@@ -556,13 +591,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 14,
-        "line": 1,
+        "column": 13,
+        "line": 0,
         "offset": 13,
       },
       "start": Object {
-        "column": 14,
-        "line": 1,
+        "column": 13,
+        "line": 0,
         "offset": 13,
       },
       "type": "closeMarker",
@@ -570,13 +605,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 15,
-        "line": 1,
+        "column": 14,
+        "line": 0,
         "offset": 14,
       },
       "start": Object {
-        "column": 15,
-        "line": 1,
+        "column": 14,
+        "line": 0,
         "offset": 14,
       },
       "type": "tagCloser",
@@ -588,17 +623,24 @@ Object {
 
 exports[`tokenizer matches snapshots "<foo bar=\\"foobar\\" />" 1`] = `
 Object {
-  "state": "text",
+  "result": Object {
+    "offset": Object {
+      "column": 20,
+      "line": 0,
+      "offset": 20,
+    },
+    "state": "text",
+  },
   "tokens": Array [
     Object {
       "end": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "start": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "type": "tagOpener",
@@ -606,13 +648,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 4,
-        "line": 1,
+        "column": 3,
+        "line": 0,
         "offset": 3,
       },
       "start": Object {
-        "column": 2,
-        "line": 1,
+        "column": 1,
+        "line": 0,
         "offset": 1,
       },
       "type": "name",
@@ -620,13 +662,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 8,
-        "line": 1,
+        "column": 7,
+        "line": 0,
         "offset": 7,
       },
       "start": Object {
-        "column": 6,
-        "line": 1,
+        "column": 5,
+        "line": 0,
         "offset": 5,
       },
       "type": "name",
@@ -634,13 +676,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "start": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "type": "equals",
@@ -648,13 +690,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 10,
-        "line": 1,
+        "column": 9,
+        "line": 0,
         "offset": 9,
       },
       "start": Object {
-        "column": 10,
-        "line": 1,
+        "column": 9,
+        "line": 0,
         "offset": 9,
       },
       "type": "quote",
@@ -662,13 +704,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 16,
-        "line": 1,
+        "column": 15,
+        "line": 0,
         "offset": 15,
       },
       "start": Object {
-        "column": 11,
-        "line": 1,
+        "column": 10,
+        "line": 0,
         "offset": 10,
       },
       "type": "value",
@@ -676,13 +718,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 17,
-        "line": 1,
+        "column": 16,
+        "line": 0,
         "offset": 16,
       },
       "start": Object {
-        "column": 17,
-        "line": 1,
+        "column": 16,
+        "line": 0,
         "offset": 16,
       },
       "type": "quote",
@@ -690,13 +732,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 19,
-        "line": 1,
+        "column": 18,
+        "line": 0,
         "offset": 18,
       },
       "start": Object {
-        "column": 19,
-        "line": 1,
+        "column": 18,
+        "line": 0,
         "offset": 18,
       },
       "type": "closeMarker",
@@ -704,13 +746,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 20,
-        "line": 1,
+        "column": 19,
+        "line": 0,
         "offset": 19,
       },
       "start": Object {
-        "column": 20,
-        "line": 1,
+        "column": 19,
+        "line": 0,
         "offset": 19,
       },
       "type": "tagCloser",
@@ -722,17 +764,24 @@ Object {
 
 exports[`tokenizer matches snapshots "<foo>text</foo>" 1`] = `
 Object {
-  "state": "text",
+  "result": Object {
+    "offset": Object {
+      "column": 15,
+      "line": 0,
+      "offset": 15,
+    },
+    "state": "text",
+  },
   "tokens": Array [
     Object {
       "end": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "start": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "type": "tagOpener",
@@ -740,13 +789,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 4,
-        "line": 1,
+        "column": 3,
+        "line": 0,
         "offset": 3,
       },
       "start": Object {
-        "column": 2,
-        "line": 1,
+        "column": 1,
+        "line": 0,
         "offset": 1,
       },
       "type": "name",
@@ -754,13 +803,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 5,
-        "line": 1,
+        "column": 4,
+        "line": 0,
         "offset": 4,
       },
       "start": Object {
-        "column": 5,
-        "line": 1,
+        "column": 4,
+        "line": 0,
         "offset": 4,
       },
       "type": "tagCloser",
@@ -768,13 +817,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "start": Object {
-        "column": 6,
-        "line": 1,
+        "column": 5,
+        "line": 0,
         "offset": 5,
       },
       "type": "text",
@@ -782,13 +831,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 10,
-        "line": 1,
+        "column": 9,
+        "line": 0,
         "offset": 9,
       },
       "start": Object {
-        "column": 10,
-        "line": 1,
+        "column": 9,
+        "line": 0,
         "offset": 9,
       },
       "type": "tagOpener",
@@ -796,13 +845,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 11,
-        "line": 1,
+        "column": 10,
+        "line": 0,
         "offset": 10,
       },
       "start": Object {
-        "column": 11,
-        "line": 1,
+        "column": 10,
+        "line": 0,
         "offset": 10,
       },
       "type": "closeMarker",
@@ -810,13 +859,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 14,
-        "line": 1,
+        "column": 13,
+        "line": 0,
         "offset": 13,
       },
       "start": Object {
-        "column": 12,
-        "line": 1,
+        "column": 11,
+        "line": 0,
         "offset": 11,
       },
       "type": "name",
@@ -824,13 +873,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 15,
-        "line": 1,
+        "column": 14,
+        "line": 0,
         "offset": 14,
       },
       "start": Object {
-        "column": 15,
-        "line": 1,
+        "column": 14,
+        "line": 0,
         "offset": 14,
       },
       "type": "tagCloser",
@@ -842,17 +891,24 @@ Object {
 
 exports[`tokenizer matches snapshots "<foobar />" 1`] = `
 Object {
-  "state": "text",
+  "result": Object {
+    "offset": Object {
+      "column": 10,
+      "line": 0,
+      "offset": 10,
+    },
+    "state": "text",
+  },
   "tokens": Array [
     Object {
       "end": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "start": Object {
-        "column": 1,
-        "line": 1,
+        "column": 0,
+        "line": 0,
         "offset": 0,
       },
       "type": "tagOpener",
@@ -860,13 +916,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 7,
-        "line": 1,
+        "column": 6,
+        "line": 0,
         "offset": 6,
       },
       "start": Object {
-        "column": 2,
-        "line": 1,
+        "column": 1,
+        "line": 0,
         "offset": 1,
       },
       "type": "name",
@@ -874,13 +930,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "start": Object {
-        "column": 9,
-        "line": 1,
+        "column": 8,
+        "line": 0,
         "offset": 8,
       },
       "type": "closeMarker",
@@ -888,13 +944,13 @@ Object {
     },
     Object {
       "end": Object {
-        "column": 10,
-        "line": 1,
+        "column": 9,
+        "line": 0,
         "offset": 9,
       },
       "start": Object {
-        "column": 10,
-        "line": 1,
+        "column": 9,
+        "line": 0,
         "offset": 9,
       },
       "type": "tagCloser",

@@ -69,7 +69,7 @@ export function compile(
 
         const value = getValue(context, start, end);
 
-        return context.createToken(type, value, start, end);
+        return context.createToken(type, value, start, end, context.offset);
       }
 
       return [type, finalize];
@@ -89,8 +89,8 @@ export function compile(
 
         const message =
           `Invalid "${context.char}" ` +
-          `at line ${context.location.line}, ` +
-          `column ${context.location.column}, ` +
+          `at line ${context.location.line + 1}, ` +
+          `column ${context.location.column + 1}, ` +
           `expected ${context.state.rules
             .map((rule) => `"${rule.match.source}"`)
             .join(", ")}.`;
