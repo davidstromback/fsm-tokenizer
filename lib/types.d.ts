@@ -1,10 +1,56 @@
-export interface TokenizerOptions<StateKey> {
-    state?: StateKey;
-    offset?: Point;
+export interface Interpolation {
+    type: "interpolation";
+    value: any;
 }
-export interface TokenizerResult<StateKey> {
-    state: StateKey;
-    offset: Point;
+/**
+ * Represents a location in a string.
+ */
+export interface Point {
+    /**
+     * Line, 0-indexed.
+     */
+    line: number;
+    /**
+     * Column, 0-indexed.
+     */
+    column: number;
+    /**
+     * Offset from the start of the string,
+     * 0-indexed.
+     */
+    offset: number;
+}
+export interface Schema<TokenType extends keyof any, StateKey extends keyof any> {
+    tokens: Record<TokenType, Finalizer>;
+    states: Record<StateKey, State>;
+    initialState: StateKey;
+}
+/**
+ * A finalized token.
+ */
+export interface Token<Type> {
+    /**
+     * The type of the token.
+     */
+    type: Type;
+    /**
+     * The token string value.
+     */
+    value: string | undefined;
+    /**
+     * The start location of the token.
+     */
+    start: Point;
+    /**
+     * The end location of the token.
+     */
+    end: Point;
+}
+/**
+ * Creates a token.
+ */
+export interface TokenFactory<Token, Type> {
+    (type: Type, value: string | undefined, start: Point, end: Point, offset: Point): Token;
 }
 /**
  * Tokenizes a string and returns the final state.
@@ -12,11 +58,13 @@ export interface TokenizerResult<StateKey> {
 export interface Tokenizer<Token, StateKey> {
     (string: string, options?: TokenizerOptions<StateKey>): Generator<Token, TokenizerResult<StateKey>, undefined>;
 }
-/**
- * Creates a token.
- */
-export interface TokenFactory<Token, Type> {
-    (type: Type, value: string | undefined, start: Point, end: Point, offset: Point): Token;
+export interface TokenizerOptions<StateKey> {
+    state?: StateKey;
+    offset?: Point;
+}
+export interface TokenizerResult<StateKey> {
+    state: StateKey;
+    offset: Point;
 }
 /**
  * Finalizes the current token.
@@ -47,54 +95,6 @@ export interface State {
      * The finalizer to use when in this state.
      */
     finalize: Finalizer;
-}
-export interface Schema<TokenType extends keyof any, StateKey extends keyof any> {
-    tokens: Record<TokenType, Finalizer>;
-    states: Record<StateKey, State>;
-    initialState: StateKey;
-}
-/**
- * Represents a location in a string.
- */
-export interface Point {
-    /**
-     * Line, 0-indexed.
-     */
-    line: number;
-    /**
-     * Column, 0-indexed.
-     */
-    column: number;
-    /**
-     * Offset from the start of the string,
-     * 0-indexed.
-     */
-    offset: number;
-}
-/**
- * A finalized token.
- */
-export interface Token<Type> {
-    /**
-     * The type of the token.
-     */
-    type: Type;
-    /**
-     * The token string value.
-     */
-    value: string | undefined;
-    /**
-     * The start location of the token.
-     */
-    start: Point;
-    /**
-     * The end location of the token.
-     */
-    end: Point;
-}
-export interface Interpolation {
-    type: "interpolation";
-    value: any;
 }
 /**
  * Holds information about the current state of a tokeniser.
