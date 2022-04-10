@@ -51,10 +51,6 @@ export interface Token<Type> {
 export interface TokenFactory<Token, Type> {
     (type: Type, value: string | undefined, start: Point, end: Point): Token;
 }
-export interface TokenizationError extends Error {
-    name: "TokenizationError";
-    location: Point;
-}
 /**
  * Tokenizes a string and returns the final state.
  */
